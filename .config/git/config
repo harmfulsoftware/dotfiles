@@ -4,6 +4,7 @@
   b = branch -vv
   c = "!git switch master; git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D; git pull origin $(git rev-parse --abbrev-ref HEAD) --no-tags"
   d = diff
+  f = "!git add -A; git commit --allow-empty-message; git push"
   g = "!git gc; git repack -Ad; git prune"
   p = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --no-tags && git submodule update --remote"
   pu = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
@@ -15,8 +16,10 @@
 [credential]
   helper =
 [http]
-  sslCipherList = "ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256"
+  sslCipherList = "ECDHE-RSA-CHACHA20-POLY1305:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256"
   sslVersion = tlsv1.2
+[pack]
+  useSparse = true
 [pull]
   rebase = true
 [rebase]
@@ -25,5 +28,3 @@
   fsckobjects = true
 [user]
   useConfigOnly = true
-[pack]
-  useSparse = true
