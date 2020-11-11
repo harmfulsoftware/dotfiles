@@ -15,9 +15,6 @@
   editor = nvim
 [credential]
   helper =
-[http]
-  sslCipherList = "ECDHE-RSA-CHACHA20-POLY1305:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256"
-  sslVersion = tlsv1.2
 [pack]
   useSparse = true
 [pull]

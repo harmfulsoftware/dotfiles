@@ -3,7 +3,7 @@ export AWS_VAULT_KEYCHAIN_NAME=login
 export LANG=en_US.UTF-8
 export LC_ALL="$LANG"
 export HISTFILE=/dev/null
-export HOMEBREW_CURLRC="$HOME/.curlrc"
+export HOMEBREW_FORCE_BREWED_CURL=1
 export HOMEBREW_FORCE_BREWED_CURL=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_NO_ANALYTICS=1
@@ -23,7 +23,7 @@ unsetopt correctall
 zmodload zsh/complist
 zmodload -u zsh/terminfo
 
-alias bup='brew upgrade --force; brew cask upgrade'
+alias bup='brew upgrade'
 alias cp='cp -iv'
 alias drmi='docker system prune -af'
 alias genpass='openssl rand -base64 $(jot -r 1 16 48)'
