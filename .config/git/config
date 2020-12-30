@@ -12,9 +12,11 @@
   sc = switch -c
 [core]
   compression = 0
-  editor = nvim
 [credential]
   helper =
+[http]
+  sslCipherList = "ECDHE-RSA-CHACHA20-POLY1305"
+  sslVersion = tlsv1.2
 [pack]
   useSparse = true
 [pull]

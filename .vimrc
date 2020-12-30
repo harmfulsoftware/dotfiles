@@ -1,8 +1,8 @@
+set nocompatible
 set noloadplugins
 set history=0
 set nobackup
 set nomodeline
-set shadafile="NONE"
 set noshelltemp
 set noswapfile
 set noundofile
@@ -13,7 +13,6 @@ set complete-=i
 set encoding=utf-8 nobomb
 set expandtab
 set formatoptions=l
-set guicursor=
 set hlsearch
 set incsearch
 set linebreak
@@ -24,8 +23,9 @@ set secure
 set sessionoptions=
 set shiftwidth=2
 set tabstop=2
-set textwidth=0
 set timeoutlen=200
+set textwidth=0
+set viminfo=
 set wildmode=longest,list
 set wrap
 set wrapmargin=0
