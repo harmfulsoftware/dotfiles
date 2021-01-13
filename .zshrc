@@ -24,6 +24,6 @@ zmodload -u zsh/terminfo
 alias bup='brew upgrade'
 alias cp='cp -iv'
 alias drmi='docker system prune -af'
-alias genpass='openssl rand -base64 $(jot -r 1 16 48)'
+alias genpass='openssl rand -base64 42'
 alias mv='mv -iv'
 alias ls='ls -lhAGF'
