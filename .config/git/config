@@ -2,11 +2,12 @@
   a = add -A
   ad = add -A --dry-run
   b = branch -vv
-  c = "!git switch master; git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D; git pull origin $(git rev-parse --abbrev-ref HEAD) --no-tags"
+  c = "!git switch master; git fetch -pq && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D; git pull origin $(git rev-parse --abbrev-ref HEAD) --no-tags"
   d = diff
   f = "!git add -A; git commit --allow-empty-message; git push"
   g = "!git gc; git repack -Ad; git prune"
   p = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --no-tags && git submodule update --remote"
+  r = "!git reset --soft HEAD~$(git rev-list --count HEAD ^master); git add -A; git commit -m $(git branch --show-current); git push --force"
   pu = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
   s = switch
   sc = switch -c
