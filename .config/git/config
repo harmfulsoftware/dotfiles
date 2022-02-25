@@ -7,8 +7,8 @@
   f = "!git add -A; git commit --allow-empty-message; git push"
   g = "!git gc; git repack -Ad; git prune"
   p = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --no-tags && git submodule update --remote"
-  r = "!git reset --soft HEAD~$(git rev-list --count HEAD ^master); git add -A; git commit -m $(git branch --show-current); git push --force"
   pu = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+  r = "!git reset --soft HEAD~$(git rev-list --count HEAD ^master); git add -A; git commit -m $(git branch --show-current); git push --force"
   s = switch
   sc = switch -c
 [core]
