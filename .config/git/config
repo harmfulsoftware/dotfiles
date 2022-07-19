@@ -4,15 +4,18 @@
   b = branch -vv
   c = "!git switch master; git fetch -pq && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D; git pull origin $(git rev-parse --abbrev-ref HEAD) --no-tags"
   d = diff
-  f = "!git add -A; git commit --allow-empty-message; git push"
+  f = "!git add -A; git commit -m WIP; git push"
   g = "!git gc; git repack -Ad; git prune"
   p = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --no-tags && git submodule update --remote"
   pu = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
   r = "!git reset --soft HEAD~$(git rev-list --count HEAD ^master); git add -A; git commit -m $(git branch --show-current); git push --force"
   s = switch
   sc = switch -c
+[checkout]
+  workers = -1
 [core]
   compression = 0
+  fsync = all
 [credential]
   helper =
 [http]
