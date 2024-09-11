@@ -9,6 +9,7 @@
   p = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --no-tags && git submodule update --remote"
   pu = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
   r = "!git reset --soft HEAD~$(git rev-list --count HEAD ^master); git add -A; git commit -m $(git branch --show-current); git push --force"
+  rc = "!git reset --soft HEAD~$(git rev-list --count HEAD ^master); git add -A; git commit -m $(git branch --show-current)"
   s = switch
   sc = switch -c
 [checkout]
@@ -19,8 +20,7 @@
 [credential]
   helper =
 [http]
-  sslCipherList = "ECDHE-RSA-CHACHA20-POLY1305"
-  sslVersion = tlsv1.2
+  sslCipherList = "TLS_CHACHA20_POLY1305_SHA256"
 [pack]
   useSparse = true
 [pull]
