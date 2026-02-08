@@ -1,26 +1,27 @@
 #!/bin/sh
 
-# https://raw.githubusercontent.com/dwyl/english-words/refs/heads/master/words_alpha.txt
-# sed -i "" 's/\r$//' ~/Downloads/words
-
-WORDS=$HOME/Downloads/words
-
+WORDS="$HOME/Documents/words_alpha.txt"
 LINES=$(wc -l < "$WORDS")
 
-read FIRST LAST <<EOF
-$(awk -v l="$LINES" 'BEGIN{srand(); print int(rand()*l)+1, int(rand()*l)+1}')
-EOF
-
-read VAR1 VAR2 <<EOF
-$(awk -v f="$FIRST" -v l="$LAST" '
-    NR == f { w1 = $0 }
-    NR == l { w2 = $0 }
-    (w1 && w2) { print w1, w2; exit }
+set -- $(awk -v l="$LINES" '
+BEGIN {
+    srand()
+    f = int(rand()*l) + 1
+    s = int(rand()*l) + 1
+}
+NR == f { w1 = $0 }
+NR == s { w2 = $0 }
+(w1 && w2) {
+    print w1, w2
+    exit
+}
 ' "$WORDS")
-EOF
 
-read rand1 rand2 <<EOF
-$(awk 'BEGIN{srand(); print int(10*rand()), int(10*rand())}')
-EOF
+VAR1=$1
+VAR2=$2
 
-printf "%s_%s.%s%s\n" "${VAR1}" "${VAR2}" $rand1 $rand2
+set -- $(awk 'BEGIN { srand(); print int(10*rand()), int(10*rand()) }')
+rand1=$1
+rand2=$2
+
+printf "%s_%s.%s%s\n" "$VAR1" "$VAR2" "$rand1" "$rand2"
